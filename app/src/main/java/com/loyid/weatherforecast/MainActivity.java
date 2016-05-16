@@ -2,6 +2,7 @@ package com.loyid.weatherforecast;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -17,5 +18,10 @@ public class MainActivity extends AppCompatActivity {
                     .commit();
         }
         */
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        return true;
     }
 }
