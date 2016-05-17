@@ -30,7 +30,13 @@
         <service
             android:name=".FetchWeatherService"
             android:enabled="true"
-            android:exported="true"></service>
+            android:exported="true" />
+
+        <provider
+            android:name=".provider.WeatherProvider"
+            android:authorities="com.loyid.weatherforecast"
+            android:enabled="true"
+            android:exported="true"></provider>
     </application>
 
 </manifest>
