@@ -2,9 +2,11 @@ package com.loyid.weatherforecast;
 
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.text.format.Time;
@@ -62,12 +64,18 @@ public class MainFragment extends Fragment {
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
         if (id == R.id.action_refresh) {
-            FetchWeatherTask weatherTask = new FetchWeatherTask();
-            weatherTask.execute("1835847");
+            refreshWeatherData();
             return true;
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    private void refreshWeatherData() {
+        FetchWeatherTask weatherTask = new FetchWeatherTask();
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getActivity());
+        String cityId = prefs.getString("city", "1835847");
+        weatherTask.execute(cityId);
     }
 
     @Override
@@ -109,7 +117,6 @@ public class MainFragment extends Fragment {
                 Toast.makeText(getActivity(), forecast, Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(getActivity(), DetailActivity.class);
                 intent.putExtra("data", forecast);
-                startActivity(intent);
             }
         });
 
@@ -218,6 +225,7 @@ public class MainFragment extends Fragment {
             return resultStrs;
 
         }
+
         @Override
         protected String[] doInBackground(String... params) {
 

@@ -5,4 +5,21 @@
     <string name="action_settings">Settings</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_settings">Settings</string>
+
+    <!-- Strings related to Settings -->
+
+    <string name="pref_title_city">City</string>
+    <string-array name="pref_city_list_values">
+        <item>1835847</item>
+        <item>1835235</item>
+        <item>1835327</item>
+        <item>1838524</item>
+    </string-array>
+    <string-array name="pref_city_list_titles">
+        <item>Seoul</item>
+        <item>Daejeon</item>
+        <item>Taegu</item>
+        <item>Busan</item>
+    </string-array>
 </resources>
